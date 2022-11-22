@@ -1,0 +1,13 @@
+.home {
+  text-align: center;
+}
+h1 {
+  margin: 20px;
+}
+a {
+  text-decoration: none;
+  padding: 10px 20px;
+  background-color: blue;
+  color: #fff;
+  border-radius: 30px;
+}
