@@ -4,9 +4,10 @@
     flex-flow: row nowrap;
     align-items: center;
     box-shadow: inset 312px 0px 50px #284f8d, 0px 10px 60px grey;
+    background-color: #fff;
     z-index: 1000;
-    position: fixed;
-    width: 100%;
+    position: sticky;
+    top: 0;
     height: 90px;
     .header {
         flex-basis: 40%;
