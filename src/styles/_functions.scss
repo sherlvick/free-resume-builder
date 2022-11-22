@@ -1,0 +1,9 @@
+/*
+*
+* Calculate height including padding
+*
+*
+*/
+@function dynamic-height($height, $padding) {
+    @return $height + $padding;
+}

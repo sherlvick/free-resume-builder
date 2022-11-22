@@ -1,0 +1,12 @@
+.create-container {
+    // height: 100vh;
+    display: flex;
+    .form {
+        border: 1px solid black;
+        flex-basis: 70%;
+    }
+    .animations {
+        border: 1px solid black;
+        flex-basis: 30%;
+    }
+}
