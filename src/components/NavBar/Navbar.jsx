@@ -1,7 +1,7 @@
 import React from "react";
 import "./navbar.scss";
 import { Link } from "react-router-dom";
-import { Links } from "../constants";
+import { Links } from "../../constants";
 
 const NavBar = React.memo(() => {
   return (

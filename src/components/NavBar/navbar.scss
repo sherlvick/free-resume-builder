@@ -1,10 +1,10 @@
-@import "../styles/variables";
+@import "../../styles/variables";
 .navbar-container {
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
-    box-shadow: inset 312px 0px 50px #284f8d, 0px 10px 60px grey;
-    background-color: #fff;
+    box-shadow: inset 312px 0px 50px $primary-light1-color, 0px 10px 60px grey;
+    background-color: $common-white;
     z-index: 1000;
     position: sticky;
     top: 0;
@@ -12,7 +12,7 @@
     .header {
         flex-basis: 40%;
         &__title {
-            color: white;
+            color: $text-color;
             padding-left: 20px;
             font-size: 30px;
         }
@@ -33,7 +33,7 @@
             text-shadow: 0 0.5px 1px #777, 0 2px 6px #f2f2f2;
             border-width: 1px;
             border-radius: 10px;
-            background: -webkit-linear-gradient(top, #f9f9f9 0%, #b6d2ff 100%, #c0c0c0 100%);
+            background: -webkit-linear-gradient(top, #f9f9f9 0%, #c8d8e4 100%, #c0c0c0 100%);
             transition: box-shadow 0.3s ease, transform 0.15s ease;
             box-shadow: 0 0 1px #888, 0 1px 0 #fff, 0 6px 0 #c0c0c0, 0 8px 17px rgba(#444, 0.4),
                 2px 1px 4px rgba(#444, 0.25), -2px 1px 4px rgba(#444, 0.25), 0 9px 16px rgba(#444, 0.1);
@@ -52,6 +52,7 @@
             }
             a {
                 text-decoration: none;
+                color: $text-light1-color;
             }
         }
     }

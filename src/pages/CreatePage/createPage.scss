@@ -1,5 +1,5 @@
 .create-container {
-    // height: 100vh;
+    height: calc(100vh - 90px);
     display: flex;
     .form {
         border: 1px solid black;

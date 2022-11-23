@@ -1,6 +1,5 @@
 import React, { lazy, Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
-import WithLayout from "./hoc/WithLayout";
 
 /* Pages */
 const ErrorPage = lazy(() => import("./pages/ErrorPage/ErrorPage"));
@@ -22,4 +21,4 @@ const RoutesConf = () => {
   );
 };
 
-export default WithLayout(RoutesConf);
+export default RoutesConf;
