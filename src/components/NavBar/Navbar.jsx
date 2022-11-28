@@ -7,7 +7,7 @@ const NavBar = React.memo(() => {
   return (
     <div className="navbar-container">
       <header className="header">
-        <h3 className="header__title">CV BUILDER</h3>
+        <h3 className="header__title">BUILDER</h3>
       </header>
       <nav className="navigation">
         <ul className="navigation__links">

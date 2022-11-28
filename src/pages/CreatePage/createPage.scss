@@ -4,6 +4,11 @@
     .form {
         border: 1px solid black;
         flex-basis: 70%;
+        &__wrapper {
+            max-width: 700px;
+            margin: auto;
+            border: 1px solid green;
+        }
     }
     .animations {
         border: 1px solid black;

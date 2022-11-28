@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import "./form.scss";
 
-export const FormContext = React.createContext({ form: {} });
+export const FormContext = React.createContext();
 
-const Form = React.memo(
+const FormProvider = React.memo(
   ({ initialState = {}, submit = () => {}, children }) => {
     const [formState, setFormState] = useState(initialState);
 
@@ -17,7 +17,7 @@ const Form = React.memo(
     };
 
     return (
-      <form className="form-container">
+      <form className="form-container" onSubmit={submit}>
         <FormContext.Provider value={{ formState, handleFormChange }}>
           {children}
         </FormContext.Provider>
@@ -26,4 +26,4 @@ const Form = React.memo(
   }
 );
 
-export default Form;
+export default FormProvider;

@@ -1,9 +1,12 @@
 import React from "react";
 import "./input.scss";
-import { FormContext } from "../FormContext/Form";
+import { FormContext } from "../Context/Form/FormProvider";
 
 const Input = ({ name }) => {
   const formContext = React.useContext(FormContext);
+  if (!formContext) {
+    throw new Error("Input should be used inside FormProvider");
+  }
   const { formState, handleFormChange } = formContext;
 
   return (
