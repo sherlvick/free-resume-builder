@@ -6,8 +6,8 @@ const StepperAction = () => {
   const { steps, incrementCurrentStep, decrementCurrentStep } = useStepper();
   return (
     <div className="stepper-action">
-      <button onClick={decrementCurrentStep}>prev</button>
-      <button onClick={incrementCurrentStep}>next</button>
+      <button type="button" onClick={decrementCurrentStep}>prev</button>
+      <button type="button" onClick={incrementCurrentStep}>next</button>
     </div>
   );
 };

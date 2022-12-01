@@ -7,8 +7,9 @@ const Input = ({ name }) => {
   if (!formContext) {
     throw new Error("Input should be used inside FormProvider");
   }
-  const { formState, handleFormChange } = formContext;
-
+  const { formState, handleChange, handleBlur, touched, formErrors } =
+    formContext;
+  console.log("formContext", formContext);
   return (
     <div className="input-container">
       <input
@@ -16,9 +17,12 @@ const Input = ({ name }) => {
         className="input"
         name={name}
         value={formState[name]}
-        onChange={handleFormChange}
+        onChange={handleChange}
+        onBlur={handleBlur}
       />
-      <p className="error"></p>
+      <p className="error">
+        {touched[name] && formErrors[name] ? formErrors[name] : null}
+      </p>
     </div>
   );
 };

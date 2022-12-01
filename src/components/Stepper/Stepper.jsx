@@ -7,13 +7,9 @@ import StepperAction from "./StepperAction";
 const Stepper = ({ children }) => {
   return (
     <div className="stepper">
-      {/* <div className="stepper__status"> */}
       <StepperStatus />
-      {/* </div> */}
       <div className="stepper__body">{children}</div>
-      {/* <div className="stepper__action"> */}
       <StepperAction />
-      {/* </div> */}
     </div>
   );
 };

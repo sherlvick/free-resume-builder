@@ -13,17 +13,62 @@ const CreatePage = React.memo(() => {
     firstName: "",
     lastName: "",
     jobTitle: "",
+    mobile: "",
+    email: "",
+    picture: "",
   };
 
-  const submitResumeForm = (e) => {
-    e.preventDefault();
+  const validate = (values) => {
+    const errors = {};
+    if (!values.firstName) {
+      errors.firstName = "Required";
+    } else if (values.firstName.length > 15) {
+      errors.firstName = "Must be 15 characters or less";
+    }
+
+    if (!values.lastName) {
+      errors.lastName = "Required";
+    } else if (values.lastName.length > 20) {
+      errors.lastName = "Must be 20 characters or less";
+    }
+
+    if (!values.jobTitle) {
+      errors.jobTitle = "Required";
+    } else if (values.jobTitle.length > 30) {
+      errors.jobTitle = "Enter a valid job desgination";
+    }
+
+    if (!values.mobile) {
+      errors.mobile = "Required";
+    } else if (!/	^((\+91)?|91)?[789][0-9]{9}/i.test(values.mobile)) {
+      errors.mobile = "Invalid mobile no";
+    }
+
+    if (!values.email) {
+      errors.email = "Required";
+    } else if (
+      !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)
+    ) {
+      errors.email = "Invalid email address";
+    }
+
+    return errors;
+  };
+
+  const submitResumeForm = (values, { setSubmitting }) => {
+    console.log("vslues", values);
+    setSubmitting(false);
   };
 
   return (
     <div className="create-container">
       <section className="form">
         <div className="form__wrapper">
-          <FormProvider initialState={initialValues} submit={submitResumeForm}>
+          <FormProvider
+            initialState={initialValues}
+            validate={validate}
+            submit={submitResumeForm}
+          >
             <StepperProvider>
               <Stepper>
                 <StepperSteps>
@@ -36,9 +81,11 @@ const CreatePage = React.memo(() => {
                   </StepperStep>
                   <StepperStep id="contact">
                     <Input name="mobile" />
+                    <Input name="email" />
                   </StepperStep>
                   <StepperStep id="profilePic">
                     <Input name="picture" />
+                    <button type="submit">Save</button>
                   </StepperStep>
                 </StepperSteps>
               </Stepper>
