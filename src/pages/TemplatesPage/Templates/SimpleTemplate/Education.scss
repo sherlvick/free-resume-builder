@@ -1,0 +1,13 @@
+.education {
+    margin-top: 20px;
+    &__heading{
+        text-transform: uppercase;
+        letter-spacing: 2.5px;
+        margin: 0;
+    }
+    &__course {
+        &__title {
+            color: #DE8318;
+        }
+    }
+}

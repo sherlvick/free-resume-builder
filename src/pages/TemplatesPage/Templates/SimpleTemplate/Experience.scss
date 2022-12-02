@@ -1,0 +1,17 @@
+.simple-template__experience {
+    margin-top: 20px;
+    .simple-template__experience__company {
+        &__title {
+            color: #DE8318;
+        }
+
+        &__projects {
+            &__description {
+                li {
+                    line-height: 2;
+                }
+
+            }
+        }
+    }
+}

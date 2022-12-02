@@ -1,0 +1,21 @@
+.simple-template__languages {
+    margin-top: 20px;
+    &__container {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    &__item {
+        text-align: start;
+        width: 40%;
+        display: flex;
+        justify-content: space-between;
+
+        p:last-child {
+            min-width: 100px;
+            text-align: start;
+        }
+    }
+
+}

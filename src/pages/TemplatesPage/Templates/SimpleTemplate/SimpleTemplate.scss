@@ -1,4 +1,64 @@
-.simple-template-container{
-    margin: 50px;
+.simple-template-section{
+    margin: 50px 0;
     
+    .simple-template-container {
+        margin: 0px auto;
+        width: fit-content;
+        .template-container {
+            background-color: #125f75;
+            color: #fff;
+            padding: 0 30px;
+            width: 210mm;
+    
+        }
+        .line {
+            border-top: 1px solid #fff;
+            border-width: 1px 0 0;
+        }
+    }
+
+    .sideheading {
+        text-transform: uppercase;
+        letter-spacing: 2.5px;
+        margin: 0;
+    }
+    
+    .flex-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .print-button{
+        padding: 10px 15px;
+        margin: 0 auto;
+    }
 }
+
+
+
+
+
+//comman styles
+
+
+
+
+
+
+@media print {
+
+    @page {
+        size: auto;   /* auto is the initial value */
+        margin: 3%;
+     }
+
+    html,
+    body {
+        width: 210mm;
+        height: 282mm;
+        font-size: 12px;
+        overflow: visible;
+    }
+}
+
+
