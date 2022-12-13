@@ -1,2 +1,44 @@
+@import "../../styles/variables";
 .input-container {
+    display: flex;
+    flex-flow: column;
+    &__label {
+        padding-right: 1em;
+        padding-bottom: 1em;
+        &--sm {
+            font-size: 1rem;
+        }
+        &--md {
+            font-size: 1.5rem;
+        }
+        &--lg {
+            font-size: 2rem;
+        }
+    }
+    &__icon-wrapper {
+        display: flex;
+        align-items: center;
+        border: 1px solid black;
+    }
+    &__input {
+        padding: 0.5rem;
+        width: 100%;
+        &--sm {
+            font-size: 1rem;
+        }
+        &--md {
+            font-size: 1.5rem;
+        }
+        &--lg {
+            font-size: 2rem;
+        }
+        &--withIcon {
+            border: none;
+            outline: none;
+        }
+    }
+
+    &__error {
+        color: $warningColor;
+    }
 }

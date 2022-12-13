@@ -1,13 +1,25 @@
 .create-container {
-    height: calc(100vh - 90px);
+    min-height: calc(100vh - 90px);
     display: flex;
     .form {
         border: 1px solid black;
         flex-basis: 70%;
+        display: flex;
+        flex-flow: column;
         &__wrapper {
-            max-width: 700px;
+            min-width: 700px;
             margin: auto;
-            border: 1px solid green;
+            padding: 5rem 0 10rem 0;
+            flex-grow: 1;
+        }
+        &__contact {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            > * {
+                flex-basis: 40%;
+                margin-right: 1em;
+            }
         }
     }
     .animations {

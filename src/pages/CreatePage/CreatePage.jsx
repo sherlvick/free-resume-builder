@@ -7,6 +7,7 @@ import Stepper, {
   StepperSteps,
 } from "../../components/Stepper/Stepper";
 import StepperProvider from "../../components/Context/Stepper/StepperProvider";
+import SocialMediaSelect from "../../components/SocialMediaSelect/SocialMediaSelect";
 
 const CreatePage = React.memo(() => {
   const initialValues = {
@@ -26,10 +27,10 @@ const CreatePage = React.memo(() => {
       errors.firstName = "Must be 15 characters or less";
     }
 
-    if (!values.lastName) {
-      errors.lastName = "Required";
-    } else if (values.lastName.length > 20) {
-      errors.lastName = "Must be 20 characters or less";
+    if (!values.surname) {
+      errors.surname = "Required";
+    } else if (values.surname.length > 20) {
+      errors.surname = "Must be 20 characters or less";
     }
 
     if (!values.jobTitle) {
@@ -73,15 +74,40 @@ const CreatePage = React.memo(() => {
               <Stepper>
                 <StepperSteps>
                   <StepperStep id="name">
-                    <Input name="firstName" />
-                    <Input name="lastName" />
+                    <Input name="firstName" label="Firstname" size="lg" />
+                    <Input name="surname" label="Surname" size="lg" />
                   </StepperStep>
                   <StepperStep id="desgination">
-                    <Input name="jobTitle" />
+                    <Input name="jobTitle" label="Job Title" size="lg" />
                   </StepperStep>
                   <StepperStep id="contact">
-                    <Input name="mobile" />
-                    <Input name="email" />
+                    <div className="form__contact">
+                      <Input name="mobile" label="Mobile" size="md" />
+                      <Input name="email" label="Email" size="md" />
+                      <Input name="address" label="Address" size="md" />
+                      <SocialMediaSelect
+                        name="socialLinks"
+                        label="Social Links"
+                        size="md"
+                        placeholder="Add links"
+                      />
+                    </div>
+                  </StepperStep>
+                  <StepperStep id="svd">
+                    <Input name="mobiled" />
+                    <Input name="emailds" />
+                  </StepperStep>
+                  <StepperStep id="ds">
+                    <Input name="mobilef" />
+                    <Input name="emaihgbl" />
+                  </StepperStep>
+                  <StepperStep id="svsd">
+                    <Input name="mobisled" />
+                    <Input name="emasilds" />
+                  </StepperStep>
+                  <StepperStep id="das">
+                    <Input name="mobialef" />
+                    <Input name="emaidhgbl" />
                   </StepperStep>
                   <StepperStep id="profilePic">
                     <Input name="picture" />

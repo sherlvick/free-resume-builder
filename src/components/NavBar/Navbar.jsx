@@ -12,9 +12,11 @@ const NavBar = React.memo(() => {
       <nav className="navigation">
         <ul className="navigation__links">
           {Links.map((link) => (
-            <li key={link.id} className="navigation__link">
-              <Link to={link.to}>{link.label}</Link>
-            </li>
+            <Link to={link.to}>
+              <li key={link.id} className="navigation__link">
+                {link.label}
+              </li>
+            </Link>
           ))}
         </ul>
       </nav>

@@ -22,6 +22,10 @@
         &__links {
             list-style: none;
             display: flex;
+            a {
+                text-decoration: none;
+                color: $text-light1-color;
+            }
         }
         &__link {
             padding: 15px;
@@ -49,10 +53,6 @@
                 box-shadow: 0 0 1px #888, 0 1px 0 #fff, 0 0 0 #c0c0c0, 0 0px 30px rgba(#444, 0.15),
                     2px 2px 4px rgba(#444, 0.25), -2px 2px 4px rgba(#444, 0.25), 0 0px 4px rgba(#444, 0.25);
                 transform: translateY(4px);
-            }
-            a {
-                text-decoration: none;
-                color: $text-light1-color;
             }
         }
     }

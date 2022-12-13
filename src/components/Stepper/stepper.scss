@@ -1,5 +1,15 @@
 @import "../../styles/variables";
 
+.stepper {
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    &__body {
+        align-self: center;
+    }
+}
+
 .stepper-status {
     position: relative;
     &__line {

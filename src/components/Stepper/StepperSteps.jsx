@@ -1,6 +1,6 @@
 import "./stepper.scss";
 import { useStepper } from "../Context/Stepper/StepperProvider";
-import React, { useEffect } from "react";
+import React, { Fragment, useEffect } from "react";
 
 export const StepperSteps = ({ children }) => {
   const { setSteps, steps, currentStep } = useStepper();
@@ -13,16 +13,16 @@ export const StepperSteps = ({ children }) => {
   }, [setSteps]);
 
   return (
-    <div>
+    <Fragment>
       {children &&
         React.Children.map(children, (child) => {
           if (steps.length)
             return child.props.id === steps[currentStep].id ? child : null;
         })}
-    </div>
+    </Fragment>
   );
 };
 
 export const StepperStep = function ({ children }) {
-  return <>{children}</>;
+  return <Fragment>{children}</Fragment>;
 };

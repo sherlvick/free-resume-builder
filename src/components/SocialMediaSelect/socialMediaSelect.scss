@@ -1,0 +1,68 @@
+@import "../../styles/variables";
+
+.socialLinkSelect-container {
+    display: flex;
+    flex-flow: column;
+    &__label {
+        padding-right: 1em;
+        padding-bottom: 1em;
+        &--sm {
+            font-size: 1rem;
+        }
+        &--md {
+            font-size: 1.5rem;
+        }
+        &--lg {
+            font-size: 2rem;
+        }
+    }
+    &__select {
+        position: relative;
+        display: inline-block;
+    }
+    &__select-btn {
+        cursor: pointer;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        padding: 0.5rem;
+        &--sm {
+            font-size: 1rem;
+        }
+        &--md {
+            font-size: 1.5rem;
+        }
+        &--lg {
+            font-size: 2rem;
+        }
+        // div {
+        //     display: flex;
+        //     align-items: center;
+        //     padding: 0.5rem;
+        // }
+    }
+    &__select-options {
+        position: absolute;
+        width: 100%;
+    }
+    &__select-option {
+        cursor: pointer;
+        border: 1px solid $primary-light1-color;
+        padding: 0.5rem;
+        background-color: $common-white;
+        display: flex;
+        align-items: center;
+        &:hover {
+            background-color: $primary-light1-color;
+        }
+    }
+    &__select-option-icon {
+        // color: $primary-color;
+        font-size: 30px;
+    }
+    &__select-option-label {
+        flex-grow: 1;
+        text-align: center;
+        margin: 0;
+    }
+}

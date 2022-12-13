@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useContext } from "react";
+import React, { useState, useCallback, useContext, Fragment } from "react";
 
 export const StepperContext = React.createContext();
 
@@ -44,13 +44,13 @@ const StepperProvider = React.memo(({ children }) => {
   };
 
   return (
-    <div>
+    <Fragment>
       <StepperContext.Provider
         value={{ stepperState, setStepperStateFunctions }}
       >
         {children}
       </StepperContext.Provider>
-    </div>
+    </Fragment>
   );
 });
 

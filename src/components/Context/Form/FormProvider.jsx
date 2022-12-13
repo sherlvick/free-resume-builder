@@ -41,6 +41,16 @@ const FormProvider = React.memo(
       setFormState(_formState);
     };
 
+    const setFieldValue = (name, value) => {
+      if (name === undefined || value === undefined)
+        throw "Name/Value parameter is missing!";
+      const _formState = {
+        ...formState,
+        [name]: value,
+      };
+      setFormState(_formState);
+    };
+
     const handleBlur = (event) => {
       const { name } = event.target;
       const _touched = {
@@ -72,6 +82,7 @@ const FormProvider = React.memo(
             formState,
             handleChange,
             handleBlur,
+            setFieldValue,
             submitting,
             formErrors,
             validating,
