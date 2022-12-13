@@ -1,19 +1,21 @@
 import React from "react";
 import "./input.scss";
 import { FormContext } from "../Context/Form/FormProvider";
+import { useCallback } from "react";
 
-function WithIcon(ActualComponent, Icon) {
+const WithIcon = (ActualComponent, StartIcon, EndIcon) => {
   return function (props) {
     return (
       <div className="input-container__icon-wrapper">
-        {Icon}
+        {StartIcon}
         <ActualComponent {...props} />
+        {EndIcon && EndIcon}
       </div>
     );
   };
 }
 
-const Input = ({ name, label, size = "sm", startIcon }) => {
+const Input = ({ name, label, size = "sm", startIcon, endIcon=null }) => {
   const formContext = React.useContext(FormContext);
   if (!formContext) {
     throw new Error("Input should be used inside FormProvider");
@@ -34,24 +36,24 @@ const Input = ({ name, label, size = "sm", startIcon }) => {
   };
 
   // HOC to add start icon
-  const InputWithIcon = WithIcon("input", startIcon);
+  const InputWithIcon = useCallback(WithIcon("input", startIcon, endIcon),[]);
 
   return (
     <div className={`input-container`}>
-      <label
+      {label && <label
         className={`input-container__label input-container__label--${size}`}
         htmlFor={name}
       >
         {label}
-      </label>
+      </label>}
       {startIcon ? (
         <InputWithIcon {...InputProps} />
       ) : (
         <input {...InputProps} />
       )}
-      <p className="input-container__error">
-        {touched[name] && formErrors[name] ? formErrors[name] : null}
-      </p>
+      
+        {touched[name] && formErrors[name] ? <p className="input-container__error">{formErrors[name] }     </p> : null}
+
     </div>
   );
 };

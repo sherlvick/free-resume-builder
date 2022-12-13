@@ -35,11 +35,6 @@
         &--lg {
             font-size: 2rem;
         }
-        // div {
-        //     display: flex;
-        //     align-items: center;
-        //     padding: 0.5rem;
-        // }
     }
     &__select-options {
         position: absolute;
@@ -65,4 +60,11 @@
         text-align: center;
         margin: 0;
     }
+}
+.add-links{
+
+}
+.close-icon{
+    font-size: 20px;
+    cursor: pointer;
 }

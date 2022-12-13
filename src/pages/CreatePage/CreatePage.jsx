@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./createPage.scss";
 import FormProvider from "../../components/Context/Form/FormProvider";
 import Input from "../../components/Input/Input";
@@ -10,6 +10,7 @@ import StepperProvider from "../../components/Context/Stepper/StepperProvider";
 import SocialMediaSelect from "../../components/SocialMediaSelect/SocialMediaSelect";
 
 const CreatePage = React.memo(() => {
+  const [state, setState] = useState({});
   const initialValues = {
     firstName: "",
     lastName: "",
@@ -70,25 +71,28 @@ const CreatePage = React.memo(() => {
             validate={validate}
             submit={submitResumeForm}
           >
-            <StepperProvider>
+           { ({formState}) => {
+            console.log(formState);
+            setState(formState)
+              return <StepperProvider>
               <Stepper>
                 <StepperSteps>
                   <StepperStep id="name">
-                    <Input name="firstName" label="Firstname" size="lg" />
-                    <Input name="surname" label="Surname" size="lg" />
+                    <Input name="firstName" label="Firstname" size="md" />
+                    <Input name="surname" label="Surname" size="md" />
                   </StepperStep>
                   <StepperStep id="desgination">
-                    <Input name="jobTitle" label="Job Title" size="lg" />
+                    <Input name="jobTitle" label="Job Title" size="md" />
                   </StepperStep>
                   <StepperStep id="contact">
                     <div className="form__contact">
-                      <Input name="mobile" label="Mobile" size="md" />
-                      <Input name="email" label="Email" size="md" />
-                      <Input name="address" label="Address" size="md" />
+                      <Input name="mobile" label="Mobile" size="sm" />
+                      <Input name="email" label="Email" size="sm" />
+                      <Input name="address" label="Address" size="sm" />
                       <SocialMediaSelect
                         name="socialLinks"
                         label="Social Links"
-                        size="md"
+                        size="sm"
                         placeholder="Add links"
                       />
                     </div>
@@ -116,10 +120,11 @@ const CreatePage = React.memo(() => {
                 </StepperSteps>
               </Stepper>
             </StepperProvider>
+           }}
           </FormProvider>
         </div>
       </section>
-      <aside className="animations">dsc</aside>
+      <aside className="animations">{JSON.stringify(state, null, " ")}</aside>
     </div>
   );
 });

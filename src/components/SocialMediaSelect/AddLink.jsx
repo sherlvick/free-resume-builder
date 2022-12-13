@@ -1,10 +1,27 @@
-import FormProvider from "../Context/Form/FormProvider";
+import "./socialMediaSelect.scss";
 import Input from "../Input/Input";
-import { SiLeetcode } from "react-icons/si";
+import { AiFillCloseCircle } from "react-icons/ai";
 
-const AddLink = () => {
+const AddLink = ({ links, deleteLink }) => {
   return (
-    <Input name="leetcode" size="sm" startIcon={<SiLeetcode size="20px" />} />
+    <div className="add-link">
+      {links &&
+        links.map(({ id, value, icon: Icon }) => (
+          <Input
+            key={id}
+            name={value}
+            size="sm"
+            startIcon={<Icon/>}
+            endIcon={
+              <div
+                onClick={() => deleteLink(id,value)}
+              >
+                <AiFillCloseCircle className="close-icon" />
+              </div>
+            }
+          />
+        ))}
+    </div>
   );
 };
 

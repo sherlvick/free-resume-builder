@@ -19,6 +19,10 @@
         display: flex;
         align-items: center;
         border: 1px solid black;
+        padding: 0.5rem;
+        :first-child{
+            margin-right: 0.5rem;
+        }
     }
     &__input {
         padding: 0.5rem;
@@ -35,6 +39,7 @@
         &--withIcon {
             border: none;
             outline: none;
+            padding: 0;
         }
     }
 

@@ -1,24 +1,21 @@
 import React, { Fragment, useState } from "react";
 import "./socialMediaSelect.scss";
-// import { FormContext } from "../Context/Form/FormProvider";
+import { FormContext } from "../Context/Form/FormProvider";
 import { SocialMediaSelectOptions } from "../../constants";
 import useOutsideClickForVisibility from "../../utils/hooks/outsideClickForVisibility";
 import AddLink from "./AddLink";
 
 const SocialMediaSelect = ({ name, label, size = "sm", placeholder }) => {
-  // const formContext = React.useContext(FormContext);
-  // if (!formContext) {
-  //   throw new Error("Input should be used inside FormProvider");
-  // }
-  // const {
-  //   formState,
-  //   handleChange,
-  //   handleBlur,
-  //   setFieldValue,
-  //   touched,
-  //   formErrors,
-  // } = formContext;
+  const formContext = React.useContext(FormContext);
+  if (!formContext) {
+    throw new Error("Input should be used inside FormProvider");
+  }
+  const { setFieldValue } =
+    formContext;
 
+  const [socialMediaSelectOptions, setSocialMediaSelectOptions] = useState(
+    SocialMediaSelectOptions
+  );
   const [selectedValue, setSelectedValue] = useState(placeholder || "Select");
 
   const { ref, isComponentVisible, setIsComponentVisible } =
@@ -28,8 +25,11 @@ const SocialMediaSelect = ({ name, label, size = "sm", placeholder }) => {
     setIsComponentVisible((prevState) => !prevState);
   };
 
-  const onClickOfOption = (value) => {
+  const onClickOfOption = (value, id) => {
     toggleState();
+    setSocialMediaSelectOptions((prevState) =>
+      prevState.filter((option) => option.id !== id)
+    );
     const selectedOptionData =
       SocialMediaSelectOptions &&
       SocialMediaSelectOptions.find((option) => option.value === value);
@@ -41,6 +41,14 @@ const SocialMediaSelect = ({ name, label, size = "sm", placeholder }) => {
         </p>
       </Fragment>
     );
+  };
+
+  const deleteAddedLinkInput = (id,name) => {
+    setSocialMediaSelectOptions((prevState) => [
+      ...prevState,
+      ...SocialMediaSelectOptions.filter((option) => option.id === id),
+    ]);
+    setFieldValue(name,'')
   };
 
   return (
@@ -62,13 +70,13 @@ const SocialMediaSelect = ({ name, label, size = "sm", placeholder }) => {
         </button>
         <div className="socialLinkSelect-container__select-options">
           {isComponentVisible &&
-            SocialMediaSelectOptions &&
-            SocialMediaSelectOptions.map((option) => {
+            socialMediaSelectOptions &&
+            socialMediaSelectOptions.map((option) => {
               return (
                 <div
                   key={option.id}
                   className="socialLinkSelect-container__select-option"
-                  onClick={() => onClickOfOption(option.value)}
+                  onClick={() => onClickOfOption(option.value, option.id)}
                 >
                   <option.icon className="socialLinkSelect-container__select-option-icon" />
                   <p className="socialLinkSelect-container__select-option-label">
@@ -79,7 +87,15 @@ const SocialMediaSelect = ({ name, label, size = "sm", placeholder }) => {
             })}
         </div>
       </div>
-      <AddLink />
+      <AddLink
+        links={SocialMediaSelectOptions.filter(
+          ({ id: originalId }) =>
+            !socialMediaSelectOptions.some(
+              ({ id: filteredId }) => originalId === filteredId
+            )
+        )}
+        deleteLink={deleteAddedLinkInput}
+      />
       {/* <p className="socialLinkSelect-container__error">
         {touched[name] && formErrors[name] ? formErrors[name] : null}
       </p> */}

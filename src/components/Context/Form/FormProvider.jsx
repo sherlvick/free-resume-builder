@@ -75,21 +75,23 @@ const FormProvider = React.memo(
       setSubmitting(true);
     };
 
+    const FormProps = {
+      formState,
+      handleChange,
+      handleBlur,
+      setFieldValue,
+      submitting,
+      formErrors,
+      validating,
+      touched,
+    };
+
     return (
       <form className="form-container" onSubmit={handleSubmit}>
         <FormContext.Provider
-          value={{
-            formState,
-            handleChange,
-            handleBlur,
-            setFieldValue,
-            submitting,
-            formErrors,
-            validating,
-            touched,
-          }}
+          value={FormProps}
         >
-          {children}
+          {typeof children === 'function' ? children(FormProps) : children}
         </FormContext.Provider>
       </form>
     );
